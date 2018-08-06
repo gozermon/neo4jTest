@@ -40,9 +40,10 @@ If desired, you can install your own Neo4j server following the instructions her
    [Download and install Neo4J Server](https://neo4j.com/docs/operations-manual/current/installation/ "Download and install Neo4J Server")
 
 If using your own Neo4j server, adjust the value of these properties in the Spring Boot application.properties file in the src/main/resources folder:
-    spring.data.neo4j.uri=bolt://<your server url>
-    spring.data.neo4j.username=<neo4j username>
-    spring.data.neo4j.password=<neo4j password>
+
+`spring.data.neo4j.uri=bolt://<your server url>
+ spring.data.neo4j.username=<neo4j username>
+ spring.data.neo4j.password=<neo4j password>`
 
 The properties files have not yet been externalized.  They must be built into the JAR file.
 
