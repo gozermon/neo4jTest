@@ -56,4 +56,5 @@ Alternatively, you can run the project using this command from the top-level of 
 
 `C:\projects\neo4jTest>mvn clean spring-boot:run`
 
-Use the direct swagger URL here or chang index.html to redirect to Swagger
+Use the [local swagger URL](http://localhost:8080/swagger-ui.html#/employee-controller "Local Employee Controller") to see the demo UI.  You can also change index.html to redirect to the local Swagger UI.
+
