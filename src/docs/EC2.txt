@@ -1,0 +1,9 @@
+AWS EC2
+instance IP: 18.232.126.180
+instance ID: i-07f11d26d7bdc7f6b
+default user name for the AMI: ec2-user
+
+Bolt URL: 18.232.126.180:7687
+
+"C:\Program Files\PuTTY\pscp" -i C:\projects\neo4jtest\src\docs\neotest.ppk C:\Users\gozer\Downloads\neo4j-community-3.4.5-unix.tar.gz ec2-user@18.232.126.180:/home/ec2-user/
+

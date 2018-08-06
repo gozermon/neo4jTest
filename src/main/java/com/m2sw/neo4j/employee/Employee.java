@@ -1,6 +1,7 @@
 package com.m2sw.neo4j.employee;
 
 import io.swagger.annotations.ApiModelProperty;
+import org.neo4j.ogm.annotation.GeneratedValue;
 import org.neo4j.ogm.annotation.Id;
 import org.neo4j.ogm.annotation.NodeEntity;
 
@@ -9,8 +10,8 @@ import org.neo4j.ogm.annotation.NodeEntity;
  */
 @NodeEntity
 public class Employee {
-
     @Id
+    @GeneratedValue
     Long id;
     @ApiModelProperty(notes = "The employee id", required = true)
     int empId;
@@ -27,13 +28,13 @@ public class Employee {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public Long getId() {
+//        return id;
+//    }
+//
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public int getEmpId() {
         return empId;

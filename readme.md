@@ -1,62 +1,58 @@
-Neo4j Simple Test API
+# Neo4j Simple Test API
 
-Running on AWS EC2
-------------------
-This demo uses a Neo4j server running in a Linux EC2 instance on Amazon Web Services.  The Neo4j browser can be reached
-at this url: http://18.232.126.180:7474/browser/  Sevcurity and encryption are currently off to simplify the setup.
+## Running on AWS EC2
 
+This demo is running in a Linux EC2 instance on Amazon Web Services.  The urls are: 
+* [Employee API Controller](http://18.232.126.180:8080/swagger-ui.html#/employee-controller "Employee API Controller")
+* [Swagger API documentation](http://18.232.126.180:8080/swagger-ui.html "Swagger API documentation")
+* [Neo4j Server Browser](http://18.232.126.180:7474/browser/ "Neo4j Browser")
 
+To add a new employee node to the database:
+1. Click the POST button in the Swagger UI.  
+2. Click the "Try it out" button
+3. Fill in the emp_id and name fields.
+4. Click "Execute".  The results are displayed in the "Server response" box.
 
-Building and running
---------------------
+To get the list of employee nodes in the database
+1. Click the GET button in the Swagger UI.  
+2. Click the "Try it out" button
+3. Click "Execute".  The results are displayed in the "Server response" box.
 
-Make sure you have Java () and Maven installed.  Instructions are located here:
-    https://www.oracle.com/technetwork/java/javase/downloads/index.html
-    https://maven.apache.org/guides/getting-started/
+## Notes
+* The demo uses a Neo4j server running in the same Linux EC2 instance as the code.  
+* Security and encryption are currently off to simplify the setup.
 
-This demo uses a Neo4j server running in a Linux EC2 instance on Amazon Web Services. If desired, install your own Neo4j server following the instructions here:
-    https://neo4j.com/docs/operations-manual/current/installation/
-If using your own Neo4j server, change the value of these properties in the application.properties file:
+# Building and running
+
+## Pre-requisties
+Make sure you have Java and Maven installed.  Instructions for these packages are located here:
+* [Download and install Java JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html "Download and install Java JDK")
+* [Download and install Apache Maven](https://maven.apache.org/guides/getting-started/ "Download and install Apache Maven")
+
+## Source Code
+The source code is located in this Github project:
+   [Github Source Code](https://github.com/gozermon/neo4jTest.git "Github Source Code")
+
+## Neo4j Server
+You can use the Neo4j server running in the Linux EC2 instance on Amazon Web Services.  The Neo4J Bolt protocol is located at bolt://18.232.126.180
+
+If desired, you can install your own Neo4j server following the instructions here:
+   [Download and install Neo4J Server](https://neo4j.com/docs/operations-manual/current/installation/ "Download and install Neo4J Server")
+
+If using your own Neo4j server, adjust the value of these properties in the Spring Boot application.properties file in the src/main/resources folder:
     spring.data.neo4j.uri=bolt://<your server url>
     spring.data.neo4j.username=<neo4j username>
     spring.data.neo4j.password=<neo4j password>
 
+The properties files have not yet been externalized.  They must be built into the JAR file.
 
-Download the source code from this Github project.
+## Building and Packaging
+Once you have the source code, Java and Maven installed, you can build an executable jar using this command from the top-level of the directory where you downloaded the source code:
 
+`C:\projects\neo4jTest>mvn clean package`
 
+Alternatively, you can run the project using this command from the top-level of the directory where you downloaded the source code:
 
-AWS EC2
-instance IP: 18.232.126.180
-instance ID: i-07f11d26d7bdc7f6b
-default user name for the AMI: ec2-user
+`C:\projects\neo4jTest>mvn clean spring-boot:run`
 
-Bolt URL: 18.232.126.180:7687
-
-"C:\Program Files\PuTTY\pscp" -i C:\projects\neo4jtest\src\docs\neotest.ppk C:\Users\gozer\Downloads\neo4j-community-3.4.5-unix.tar.gz ec2-user@18.232.126.180:/home/ec2-user/
-
-
-The task is to develop a simple API that would process input data, communicate with Neo4J and return the results to the client.
-
-The API - REST or GraphQL will support 2 operations:
-
-1. Create an Employee node
-This operation will take 2 params - a String and an int. The String value will populate the name property of the
-new Employee node, the int value will populate the emp_id value.
-Don't worry about data validation etc.
-
-    2. Return all Employee nodes to the client. Any format is fine.
-For the actual implementation use Java (Spring boot, Dropwizard, Spark java etc) or Javascript (NodeJS + Express etc).
-
-For your API - Neo4J communication use a Bolt driver (https://neo4j.com/docs/develo per-manual/current/drivers/).
-
-When done, check your code into a github repo along with instructions on how to set up/use the API.
-
-To demonstrate API usage with any HTTP or GrapQL client (see bonus task #1 below) - please include instructions on how to use it in the README.md file in the github repo.
-
-Bonus task 1: develop a simple UI that can be used directly from the web browser to drive the API - any stack will do, from plain HTML forms to JQuery to Angular/React/etc.
-
-Bonus task 2: deploy your app along with a Neo4J instance to an AWS EC2 instance  (or any other cloud) so that we can see it in action without going through the setup process.
-
-Please submit this homework by Monday.
-
+Use the direct swagger URL here or chang index.html to redirect to Swagger
