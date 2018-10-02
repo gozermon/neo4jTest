@@ -11,7 +11,7 @@
 
     <groupId>com.m2sw.neo4j</groupId>
     <artifactId>Neo4jTest</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <packaging>jar</packaging>
     <properties>
         <java.version>1.8</java.version>
