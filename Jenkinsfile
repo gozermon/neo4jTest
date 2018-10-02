@@ -10,7 +10,7 @@ pipeline {
     }
     stage('Build'){
       steps {
-          git 'https://github.com/gozermon/neo4jTest.git'
+#          git 'https://github.com/gozermon/neo4jTest.git'
           sh 'mvn package'
       }
     }
