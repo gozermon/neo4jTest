@@ -13,12 +13,9 @@ pipeline {
           sh 'mvn test'
       }
     }
-    stage('Release'){
-        when {
-            branch 'master'
-        }
+    stage('Archive'){
         steps {
-           echo 'Time for a release'
+           echo 'Time to archive!!'
            script {
               archiveArtifacts artifacts: '**/target/*'
            }
