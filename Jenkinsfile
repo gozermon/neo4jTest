@@ -11,10 +11,10 @@ pipeline {
           sh 'mvn test'
       }
     }
-    stage('Deploy'){
+    stage('Publish'){
         steps {
-          echo 'Time to deploy!!'
-//          sh 'mvn deploy'
+          echo 'Time to publish!!'
+          sh 'mvn install'
         }
     }
   }
