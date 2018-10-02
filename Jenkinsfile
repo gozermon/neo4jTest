@@ -8,10 +8,18 @@ pipeline {
             sh 'mvn clean compile'
       }
     }
-    stage('Test'){
+    stage('Test') {
       steps {
           sh 'mvn test'
       }
+    }
+    stage(Release'){
+        when {
+            branch "master"
+        }
+        steps {
+          echo 'Time for a release'
+        }
     }
   }
 }
