@@ -3,15 +3,14 @@
 pipeline {
   agent any
   stages {
-    stage('Hello') {
+    stage('Build') {
       steps {
-        echo 'Hello Gozer!'
+            sh 'mvn clean compile'
       }
     }
-    stage('Build'){
+    stage('Test'){
       steps {
-//          git 'https://github.com/gozermon/neo4jTest.git'
-          sh 'mvn package'
+          sh 'mvn test'
       }
     }
   }
