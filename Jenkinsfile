@@ -13,9 +13,9 @@ pipeline {
           sh 'mvn test'
       }
     }
-    stage(Release'){
+    stage('Release'){
         when {
-            branch "master"
+            branch 'master'
         }
         steps {
           echo 'Time for a release'
