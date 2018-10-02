@@ -13,12 +13,10 @@ pipeline {
           sh 'mvn test'
       }
     }
-    stage('Archive'){
+    stage('Deploy'){
         steps {
-           echo 'Time to archive!!'
-           script {
-              archiveArtifacts artifacts: '**/target/*'
-           }
+          echo 'Time to deploy!!'
+          sh 'mvn deploy'
         }
     }
   }
