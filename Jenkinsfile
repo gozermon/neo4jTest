@@ -1,3 +1,5 @@
+#!groovy
+
 pipeline {
   agent any
   stages {
@@ -6,11 +8,11 @@ pipeline {
         echo 'Hello Gozer!'
       }
     }
-    stage('SCM Checkout'){
+    stage('Build'){
+      steps {
           git 'https://github.com/gozermon/neo4jTest.git'
-    }
-    stage('Compile-Package'){
-      sh 'mvn package'
+          sh 'mvn package'
+      }
     }
   }
 }
