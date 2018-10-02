@@ -18,7 +18,10 @@ pipeline {
             branch 'master'
         }
         steps {
-          echo 'Time for a release'
+           echo 'Time for a release'
+           script {
+              archiveArtifacts artifacts: '**/target/*'
+           }
         }
     }
   }
